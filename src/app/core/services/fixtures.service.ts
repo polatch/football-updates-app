@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, of } from 'rxjs';
+import { map } from 'rxjs';
 import { ApiResponse } from './api-response';
 import { Game } from '../models/game';
 

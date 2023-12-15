@@ -1,5 +1,3 @@
-<ul>
-    <li *ngFor="let country of countries">
-      <button (click)="onClick(country)" [id]="country + 'Select'">{{ country }}</button>
-    </li>
-</ul>
+<div class="btn-group">
+    <button *ngFor="let country of countries" (click)="onClick(country)" [id]="country + 'Select'">{{ country }}</button>
+</div>

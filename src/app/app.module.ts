@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LeagueStandingsModule } from './league-standings/league-standings.module';
 import { TeamGamesModule } from './team-games/team-games.module';
+import { CacheInterceptor } from './core/interceptors/cache-interceptor';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,13 @@ import { TeamGamesModule } from './team-games/team-games.module';
     LeagueStandingsModule,
     TeamGamesModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
