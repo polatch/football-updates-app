@@ -1,2 +1,2 @@
 <country-select (selectedCountry)="getTopLeagueStandings($event)" [countries]="countries"></country-select>
-<standings [standings]="leagueStandings"></standings>
+<standings *ngIf="leagueStandings.length" [standings]="leagueStandings"></standings>

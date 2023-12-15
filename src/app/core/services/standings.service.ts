@@ -13,13 +13,22 @@ export class StandingsService {
     'x-rapidapi-key': 'b9a7b6240f3571aa4d887aac082af748',
   });
 
+  standings: TeamResults[] = [];
+
   constructor(private http: HttpClient) { }
+
+  getLastStandings() {
+    return this.standings;
+  }
 
   getActualSeasonStandings(leagueId: number) {
     const params = new HttpParams().set('season', new Date().getFullYear()).set('league', leagueId);
     const options = { headers: this.HEADERS, params: params };
     
-    return this.http.get<ApiResponse>(this.API_URL, options).pipe(map((response) => this.responseToStandings(response)));
+    return this.http.get<ApiResponse>(this.API_URL, options).pipe(map((response) => {
+      this.standings = this.responseToStandings(response);
+      return this.standings;
+    }));
   }
 
   private responseToStandings(response: ApiResponse): TeamResults[] {

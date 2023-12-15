@@ -1,2 +1,2 @@
-<games [games]="tenLastGames"></games>
+<games *ngIf="tenLastGames.length" [games]="tenLastGames"></games>
 <button (click)="navigateBack()" id="backButton">Back</button>
