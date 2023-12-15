@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LeagueStandingsModule } from './league-standings/league-standings.module';
+import { TeamGamesModule } from './team-games/team-games.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LeagueStandingsModule } from './league-standings/league-standings.modul
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    LeagueStandingsModule
+    LeagueStandingsModule,
+    TeamGamesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

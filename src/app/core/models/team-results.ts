@@ -1,4 +1,3 @@
-import { Result } from "./result";
 import { Team } from "./team";
 
 export interface TeamResults {
@@ -7,4 +6,11 @@ export interface TeamResults {
     all: Result;
     goalsDiff: number;
     points: number;
+}
+
+interface Result {
+    played: number;
+    win: number;
+    lose: number;
+    draw: number;
 }

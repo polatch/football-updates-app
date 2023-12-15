@@ -1,0 +1,13 @@
+<table>
+    <tbody>
+        <tr *ngFor="let game of games">
+            <td><img [src]="game.teams.home.logo" /></td>
+            <td>{{ game.teams.home.name }}</td>
+            <td>{{ game.goals.home }}</td>
+            <td> - </td>
+            <td>{{ game.goals.away }}</td>
+            <td>{{ game.teams.away.name }}</td>
+            <td><img [src]="game.teams.away.logo" /></td>
+        </tr>
+    </tbody>
+</table>

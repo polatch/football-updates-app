@@ -16,8 +16,6 @@ export class LeagueStandingsComponent {
     const leagueId = TopLeagueId[country as keyof typeof TopLeagueId];
     this.leagueService
       .getActualSeasonStandings(leagueId)
-      .subscribe((standingsResponse) => {
-        this.leagueStandings = standingsResponse.response[0].league.standings[0];
-      });
+      .subscribe(standings => this.leagueStandings = standings);
   }
 }
