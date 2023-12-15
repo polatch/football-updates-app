@@ -9,15 +9,11 @@ export class CacheInterceptor implements HttpInterceptor {
   private cache = new Map<string, HttpResponse<ApiResponse>>();
 
   intercept(req: HttpRequest<null>, next: HttpHandler): Observable<HttpEvent<ApiResponse>> {
-    console.log(this.cache);
-    console.log(req);
-
     if (req.method !== 'GET') {
       return next.handle(req);
     }
 
     const cachedResponse = this.cache.get(req.urlWithParams);
-    console.log(cachedResponse)
     if (cachedResponse) {
       return of(cachedResponse);
     }
