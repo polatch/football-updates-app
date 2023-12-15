@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
     <div style="text-align:center" class="content">
       <h1>{{title}}</h1>
     </div>
-    <router-outlet></router-outlet>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
   `,
   styles: []
 })
 export class AppComponent {
-  title = 'Football App';
+  title = 'Football Updates';
 }
